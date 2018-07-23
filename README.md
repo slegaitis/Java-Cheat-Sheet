@@ -147,3 +147,20 @@ To use this in android:text="" add @{variable_name.value}
      ActivityMainBinding binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
      
  Things to note, data binding class is created after 1st build, ActivityMainBinding class is created if your xml file is name activity_main.xml if its other name e.g main_activity.xml binding class will be called MainActivityBinding.
+ 
+ 
+ To bind data:
+ 
+ Get all variables that will be used within that activity and pass to binding variable we created above:
+ 
+     CurrentWeather displayWeather = new CurrentWeather(
+            currentWeather.getLocationLabel(),
+            currentWeather.getIcon(),
+            currentWeather.getTime(),
+            currentWeather.getTemperature(),
+            currentWeather.getHumidity(),
+            currentWeather.getPrecipChance(),
+            currentWeather.getSummary(),
+            currentWeather.getTimezone());
+
+    binding.setWeather(displayWeather);
