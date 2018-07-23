@@ -33,11 +33,12 @@ push() - Adds new page to a stack && pop() - Removes page from a stack
 **************************************************
 
 Logging, get activity tag:
+
     public static final String TAG = StoryActivity.class.getSimpleName();
 
 **************************************************
 
-HTTP call
+HTTP call:
 
         String apiKey = "6e9b6fdc47d3747796758f08c99843bb";
         double latitude = 37.8267;
