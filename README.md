@@ -164,3 +164,20 @@ To use this in android:text="" add @{variable_name.value}
             currentWeather.getTimezone());
 
     binding.setWeather(displayWeather);
+    
+    
+**********************************************************************    
+    
+Clickable images:
+
+    public void refreshOnClick(View view) {
+            getForecast(latitude, longtitude);
+        }
+        
+And then in activity xml file:
+
+    android:onClick="refreshOnClick"
+    
+Note method must be public void and accept View as a parameter.
+    
+    
