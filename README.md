@@ -4,7 +4,7 @@ Java Usefull things:
 
 Set portrait mode for entire application.
 
-    public class InteractiveStoryApplication extends Application {
+    public class AppName extends Application {
             @Override
             public void onCreate() {
                 super.onCreate();
@@ -16,6 +16,10 @@ Set portrait mode for entire application.
                 }
             }
         }
+        
+Then in AndroidManifest.xml under application you need to add 
+
+    android:name=".AppName"
 
 **************************************************
 
