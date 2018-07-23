@@ -91,3 +91,59 @@ Check network availability:
 
             return isAvailable;
         }
+        
+        
+***************************************************
+
+Data binding:
+
+In gradle file add:
+
+    android{
+       ....
+       dataBinding {
+           enabled = true;
+       }
+    }
+
+Bind data from a class. In activity xml file (e.g activity_main.xml) wrap android.support.constraint.ConstraintLayout with 
+
+    <layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+        <data>
+            <variable
+                name="weather"
+                type="com.danskebank.stormy.CurrentWeather"/>
+        </data>
+        
+    </layout>
+
+type="" to be equal to a class you want to bind data from and name="" to equal a variable you want to assign. Make sure the class from which you want to bind values have constructors. 1 with no parameters and 2nd with all parameters within the class.
+
+Usage:
+To use this in android:text="" add @{variable_name.value}
+
+    <TextView
+            android:id="@+id/summaryValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="15dp"
+            android:text="@{weather.summary}"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/precipValue" />
+            
+ Finally update Activity setContentView() in onCreate method to:
+
+     ActivityMainBinding binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
+     
+ Things to note, data binding class is created after 1st build, ActivityMainBinding class is created if your xml file is name activity_main.xml if its other name e.g main_activity.xml binding class will be called MainActivityBinding.
