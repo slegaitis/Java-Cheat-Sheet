@@ -37,6 +37,11 @@ Logging, get activity tag:
     public static final String TAG = StoryActivity.class.getSimpleName();
 
 **************************************************
+Remove action bar, go to res -> values -> styles.xml: 
+
+    style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar"
+
+**************************************************
 
 HTTP call:
 
