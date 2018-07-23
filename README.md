@@ -146,7 +146,7 @@ To use this in android:text="" add @{variable_name.value}
 
      ActivityMainBinding binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
      
- Things to note, data binding class is created after 1st build, ActivityMainBinding class is created if your xml file is name activity_main.xml if its other name e.g main_activity.xml binding class will be called MainActivityBinding. Concatinate strings with data binding: android:text="@{`At ` + String.valueOf(weather.formatedTime) + ` it will be`}"
+ Things to note, data binding class is created after 1st build, ActivityMainBinding class is created if your xml file is name activity_main.xml if its other name e.g main_activity.xml binding class will be called MainActivityBinding. Concatinate strings with data binding: android:text="@{`At ` + String.valueOf(weather.formatedTime) + ` it will be`}". Also note: All values that are mean to be binded must be Strings, so value types such as Double or int must be converted to string String.valueOf() e.g android:text="@{String.valueOf(weather.humidity)}"
  
  
  To bind data:
