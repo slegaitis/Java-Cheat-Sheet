@@ -179,5 +179,26 @@ And then in activity xml file:
     android:onClick="refreshOnClick"
     
 Note method must be public void and accept View as a parameter.
+
+***********************************************************************
+
+Initialize SharedPreferences:
+
+    public class MainActivity extends AppCompatActivity {
+        private static final String PREFS_FILE = "com.appname.sharedpreferences.preferences";
+        private EditText mEditText;
+        private SharedPreferences mSharedPreferences;
+        private SharedPreferences.Editor mEditor;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+
+            mEditText = findViewById(R.id.editText);
+            mSharedPreferences = getSharedPreferences(PREFS_FILE, Context.MODE_PRIVATE);
+            mEditor = mSharedPreferences.edit();
+        }
+    }
     
     
